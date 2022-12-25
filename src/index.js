@@ -30,7 +30,7 @@ function onSubmitSearchBtn(e) {
 
 function onClickLoadMoreBtn() {
     onSearchImages(searchQuery); 
-}
+    }
 
 async function onSearchImages(searchQuery) {
     const BASE_URL = 'https://pixabay.com/api/';
@@ -52,7 +52,7 @@ async function onSearchImages(searchQuery) {
         const imagesArray = response.data.hits;
 
             if (totalHits !== 0) {
-                 if (currentPage === 1) {
+                if (currentPage === 1) {
                 Notiflix.Notify.success(`Hooray! We found ${totalHits} images`);
                  }
             imagesArray.map(renderMarkup);
@@ -106,7 +106,7 @@ function enableLoadMoreBtn() {
 }
 function checkLastPage() {
     if (totalHits / currentPage / 40 <= 1) {
-        disableBtn();
+        disableLoadMoreBtn();
         Notiflix.Notify.info(`We're sorry, but you've reached the end of search results.`)
     }  
 }
